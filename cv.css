@@ -586,6 +586,101 @@ html, body {
 }
 
 /* ==================================================
+   RESPONSIVE — MOBILE (≤ 750 px)
+   ================================================== */
+@media screen and (max-width: 750px) {
+  html, body { background: #f0f0f0; }
+
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Header */
+  .cv-header { flex-direction: column; padding: 20px 16px 16px; gap: 14px; }
+  .cv-name   { font-size: 30px; }
+  .name-sub  { font-size: 17px; }
+  .cv-title  { font-size: 10px; margin-top: 8px; }
+  .cv-stack  { font-size: 11px; margin-top: 5px; }
+  .c-label   { font-size: 9px; }
+  .c-val     { font-size: 11px; white-space: normal; }
+
+  /* Body layout */
+  .cv-body    { flex-direction: column; }
+  .cv-main    { order: 1; padding: 18px 16px; }
+  .cv-sidebar { order: 2; width: 100%; border-right: none; border-top: 1px solid var(--c-border); border-bottom: none; padding: 18px 16px; }
+
+  /* Sections */
+  .s-section { margin-bottom: 22px; }
+  .m-section { margin-bottom: 22px; }
+  .s-heading { font-size: 10px; letter-spacing: 1.5px; margin-bottom: 12px; }
+  .m-heading { font-size: 10px; letter-spacing: 1.5px; margin-bottom: 12px; }
+
+  /* Skills */
+  .skill-group   { margin-bottom: 14px; }
+  .sg-title      { font-size: 12px; }
+  .skill-list li { font-size: 12px; line-height: 1.7; }
+
+  /* Education */
+  .edu-item  { margin-bottom: 14px; }
+  .edu-year  { font-size: 11px; width: 34px; }
+  .edu-title { font-size: 13px; }
+  .edu-sub   { font-size: 11px; }
+  .edu-school{ font-size: 11px; }
+
+  /* Languages */
+  .lang-item  { margin-bottom: 12px; }
+  .lang-name  { font-size: 13px; }
+  .lang-level { font-size: 10px; }
+  .lang-bar   { height: 5px; }
+
+  /* Seek card */
+  .seek-card     { padding: 12px 14px; border-radius: 10px; }
+  .seek-contract { font-size: 13px; }
+  .seek-level    { font-size: 11px; }
+  .seek-diploma  { font-size: 11px; }
+  .seek-row      { font-size: 11px; margin-bottom: 5px; }
+
+  /* Profile */
+  .profile-text { font-size: 13px; padding: 12px 14px; }
+
+  /* Experience */
+  .exp-top        { flex-direction: column; gap: 4px; }
+  .exp-date-block { flex-direction: row; align-items: baseline; gap: 8px; }
+  .exp-title      { font-size: 15px; }
+  .exp-company    { font-size: 12px; }
+  .exp-clients    { font-size: 11px; padding: 5px 10px; }
+  .exp-cat        { font-size: 10px; margin-top: 12px; }
+  .exp-date       { font-size: 12px; }
+  .exp-duration   { font-size: 10px; }
+
+  /* Bullets */
+  .bullets li { font-size: 12.5px; line-height: 1.65; margin-bottom: 6px; padding-left: 14px; }
+
+  /* Projects */
+  .proj-item  { margin-bottom: 16px; }
+  .proj-title { font-size: 14px; }
+  .proj-sub   { font-size: 11px; }
+  .proj-badge { font-size: 9px; padding: 2px 7px; }
+
+  /* Contract box */
+  .contract-box      { padding: 12px 14px; }
+  .contract-top      { flex-direction: column; gap: 8px; }
+  .contract-name     { font-size: 14px; }
+  .contract-meta-line{ font-size: 10px; }
+  .contract-rhythm   { font-size: 11px; padding: 3px 10px; align-self: flex-start; }
+
+  /* Footer */
+  .cv-footer { font-size: 10px; padding: 10px 16px; line-height: 1.6; }
+
+  .name-pdf-hint { display: none !important; }
+}
+
+/* ==================================================
    PRINT / PDF EXPORT
    ================================================== */
 @media print {

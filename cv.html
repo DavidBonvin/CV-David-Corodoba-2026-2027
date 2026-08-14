@@ -357,33 +357,38 @@
             const page = doc.querySelector('.page');
             page.style.margin = '0';
             page.style.boxShadow = 'none';
+            // Remove body margin/padding so html2canvas captures no whitespace around the page
+            doc.body.style.margin = '0';
+            doc.body.style.padding = '0';
+            doc.body.style.background = 'white';
             // Force A4 desktop layout regardless of viewport size
             const s = doc.createElement('style');
             s.textContent = [
-              '.page{width:210mm!important;min-height:297mm!important;font-size:8.4pt!important;line-height:1.55!important;}',
-              '.cv-header{flex-direction:row!important;padding:14px 22px 12px!important;gap:18px!important;}',
+              '.page{width:210mm!important;min-height:297mm!important;font-size:8.2pt!important;line-height:1.45!important;}',
+              '.cv-header{flex-direction:row!important;padding:12px 22px 10px!important;gap:18px!important;}',
               '.cv-name{font-size:24pt!important;} .name-sub{font-size:13pt!important;}',
-              '.cv-title{font-size:8.5pt!important;margin-top:6px!important;} .cv-stack{font-size:7.5pt!important;}',
+              '.cv-title{font-size:8.5pt!important;margin-top:5px!important;} .cv-stack{font-size:7.5pt!important;}',
               '.c-label{font-size:5.8pt!important;} .c-val{font-size:7.5pt!important;white-space:nowrap!important;}',
               '.cv-body{flex-direction:row!important;}',
-              '.cv-sidebar{width:32%!important;border-right:1px solid #E5E7EB!important;border-bottom:none!important;padding:13px 14px!important;}',
-              '.cv-main{padding:13px 18px 12px!important;}',
-              '.s-section{margin-bottom:12px!important;} .m-section{margin-bottom:10px!important;}',
-              '.s-heading{font-size:6.8pt!important;} .m-heading{font-size:7pt!important;}',
-              '.sg-title{font-size:7pt!important;} .skill-list li{font-size:7pt!important;line-height:1.6!important;}',
+              '.cv-sidebar{width:32%!important;border-right:1px solid #E5E7EB!important;border-bottom:none!important;padding:11px 14px!important;}',
+              '.cv-main{padding:11px 18px 10px!important;}',
+              '.s-section{margin-bottom:8px!important;} .m-section{margin-bottom:7px!important;}',
+              '.s-heading{font-size:6.8pt!important;margin-bottom:7px!important;} .m-heading{font-size:7pt!important;margin-bottom:7px!important;}',
+              '.sg-title{font-size:7pt!important;} .skill-list li{font-size:7pt!important;line-height:1.5!important;}',
               '.edu-year{font-size:7pt!important;width:26px!important;} .edu-title{font-size:7.5pt!important;}',
-              '.edu-sub{font-size:6.5pt!important;} .edu-school{font-size:6.5pt!important;} .edu-item{margin-bottom:10px!important;}',
-              '.lang-name{font-size:7.5pt!important;} .lang-level{font-size:6pt!important;} .lang-bar{height:3px!important;}',
-              '.seek-contract{font-size:7.8pt!important;} .seek-row{font-size:7pt!important;}',
-              '.profile-text{font-size:7.8pt!important;padding:7px 10px!important;}',
+              '.edu-sub{font-size:6.5pt!important;} .edu-school{font-size:6.5pt!important;} .edu-item{margin-bottom:7px!important;}',
+              '.lang-item{margin-bottom:6px!important;} .lang-name{font-size:7.5pt!important;} .lang-level{font-size:6pt!important;} .lang-bar{height:3px!important;}',
+              '.seek-contract{font-size:7.8pt!important;} .seek-row{font-size:7pt!important;margin-bottom:2px!important;}',
+              '.profile-text{font-size:7.5pt!important;padding:5px 9px!important;line-height:1.5!important;}',
               '.exp-top{flex-direction:row!important;gap:10px!important;}',
               '.exp-date-block{flex-direction:column!important;align-items:flex-end!important;gap:2px!important;}',
               '.exp-title{font-size:8.5pt!important;} .exp-company{font-size:7.5pt!important;}',
-              '.exp-clients{font-size:7pt!important;} .exp-cat{font-size:6.5pt!important;}',
+              '.exp-clients{font-size:7pt!important;padding:2px 8px!important;} .exp-cat{font-size:6.5pt!important;margin-top:5px!important;margin-bottom:2px!important;}',
               '.exp-date{font-size:7.5pt!important;} .exp-duration{font-size:6.5pt!important;}',
-              '.bullets li{font-size:7.5pt!important;line-height:1.55!important;margin-bottom:3px!important;padding-left:11px!important;}',
-              '.proj-title{font-size:8pt!important;} .proj-sub{font-size:7pt!important;} .proj-badge{font-size:5.8pt!important;}',
-              '.contract-top{flex-direction:row!important;gap:10px!important;} .contract-name{font-size:8pt!important;}',
+              '.exp-item{margin-bottom:7px!important;}',
+              '.bullets li{font-size:7.5pt!important;line-height:1.45!important;margin-bottom:2px!important;padding-left:11px!important;}',
+              '.proj-item{margin-bottom:6px!important;} .proj-title{font-size:8pt!important;} .proj-sub{font-size:7pt!important;margin-bottom:2px!important;} .proj-badge{font-size:5.8pt!important;}',
+              '.contract-box{padding:6px 10px!important;} .contract-top{flex-direction:row!important;gap:10px!important;margin-bottom:4px!important;} .contract-name{font-size:8pt!important;}',
               '.contract-meta-line{font-size:6.5pt!important;} .contract-rhythm{font-size:7pt!important;align-self:auto!important;}',
               '.cv-footer{font-size:6pt!important;padding:4px 20px!important;line-height:normal!important;}',
               '.name-pdf-hint{display:none!important;}',

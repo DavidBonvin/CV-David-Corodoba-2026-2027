@@ -27,6 +27,7 @@ html, body {
   font-family: var(--f-body);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+  margin-top: -10px;
 }
 
 /* ==================================================

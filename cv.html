@@ -88,8 +88,8 @@
           <span class="c-label">Localisation</span><span class="c-val">Lille, France</span>
           <span class="c-label">Téléphone</span><span class="c-val">07 49 39 31 07</span>
           <span class="c-label">E-mail</span><span class="c-val">bonvincode@gmail.com</span>
-          <span class="c-label">LinkedIn</span><span class="c-val">linkedin.com/in/bonvincode</span>
-          <span class="c-label">GitHub</span><span class="c-val">github.com/DavidBonvin</span>
+          <span class="c-label">LinkedIn</span><span class="c-val"><a href="https://linkedin.com/in/bonvincode" target="_blank" rel="noopener noreferrer">linkedin.com/in/bonvincode</a></span>
+          <span class="c-label">GitHub</span><span class="c-val"><a href="https://github.com/DavidBonvin" target="_blank" rel="noopener noreferrer">github.com/DavidBonvin</a></span>
         </div>
       </div>
     </header>
@@ -202,9 +202,9 @@
           <div class="lang-item">
             <div class="lang-row">
               <span class="lang-name">Français</span>
-              <span class="lang-level">Bilingue C1/C2</span>
+              <span class="lang-level">Bilingue</span>
             </div>
-            <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
+            <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
           </div>
 
           <div class="lang-item">
@@ -212,7 +212,7 @@
               <span class="lang-name">Anglais</span>
               <span class="lang-level">Débutant </span>
             </div>
-            <div class="lang-bar"><div class="lang-fill" style="width:35%"></div></div>
+            <div class="lang-bar"><div class="lang-fill" style="width:30%"></div></div>
           </div>
         </section>
 
@@ -459,8 +459,8 @@
               '.cv-title{font-size:8.5pt!important;margin-top:6px!important;} .cv-stack{font-size:7.5pt!important;}',
               '.c-label{font-size:5.8pt!important;} .c-val{font-size:7.5pt!important;white-space:nowrap!important;}',
               '.cv-body{flex-direction:row!important;}',
-              '.cv-sidebar{width:32%!important;border-right:1px solid #E5E7EB!important;border-bottom:none!important;padding:13px 14px!important;}',
-              '.cv-main{padding:13px 18px 12px!important;}',
+              '.cv-sidebar{order:0!important;width:32%!important;border-right:1px solid #E5E7EB!important;border-bottom:none!important;padding:13px 14px!important;}',
+              '.cv-main{order:0!important;padding:13px 18px 12px!important;}',
               '.s-section{margin-bottom:12px!important;} .m-section{margin-bottom:10px!important;}',
               '.s-heading{font-size:6.8pt!important;margin-bottom:10px!important;} .m-heading{font-size:7pt!important;margin-bottom:8px!important;}',
               '.sg-title{font-size:7pt!important;margin-bottom:4px!important;} .skill-list li{font-size:7pt!important;line-height:1.6!important;}',
@@ -603,6 +603,33 @@ END:VCARD`;
       window.open(`https://wa.me/?text=${text}${url}`, '_blank');
       fabContainer.classList.remove('fab-open');
     });
+
+    // Auto-open FAB once per session
+    (function() {
+      const STORAGE_KEY = 'fab_auto_opened';
+      if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+      function autoOpen() {
+        sessionStorage.setItem(STORAGE_KEY, '1');
+        fabContainer.classList.add('fab-open');
+      }
+
+      if (window.matchMedia('(max-width: 750px)').matches) {
+        // Mobile: trigger on scroll to bottom, fallback to 20s if page fits in viewport
+        var fallback = setTimeout(autoOpen, 20000);
+        function onScroll() {
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+            clearTimeout(fallback);
+            window.removeEventListener('scroll', onScroll);
+            autoOpen();
+          }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+      } else {
+        // Desktop: trigger after 20 seconds
+        setTimeout(autoOpen, 20000);
+      }
+    })();
   </script>
 </body>
 </html>

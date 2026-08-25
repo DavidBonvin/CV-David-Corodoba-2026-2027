@@ -137,6 +137,16 @@ html, body {
   white-space: nowrap;
 }
 
+.c-val a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.c-val a:hover {
+  text-decoration: underline;
+  color: var(--c-accent);
+}
+
 /* ==================================================
    BODY — TWO COLUMNS
    ================================================== */
@@ -759,6 +769,11 @@ html, body {
   .name-pdf-hint { display: none; }
 
   .fab-container { display: none !important; }
+
+  /* Reset mobile order so sidebar is always on the left in PDF */
+  .cv-body    { flex-direction: row !important; }
+  .cv-sidebar { order: 0 !important; }
+  .cv-main    { order: 0 !important; }
 }
 
 /* ==================================================
